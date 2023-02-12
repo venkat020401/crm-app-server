@@ -21,7 +21,7 @@ const options = {
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://crmapp-ecom.netlify.app",
   })
 );
 
@@ -131,7 +131,7 @@ app.post("/sendpasswordlink", async (req, res) => {
           from: process.env.EMAIL,
           to: req.body.email,
           subject: "Sending Email For password Reset",
-          html: `<b>Please <a href='http://localhost:3000/verify-user/${setrandomnum.value._id}/${randomnum}'> Click here</a> to reset your password</b>`,
+          html: `<b>Please <a href='https://crmapp-ecom.netlify.app/verify-user/${setrandomnum.value._id}/${randomnum}'> Click here</a> to reset your password</b>`,
         };
         transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
